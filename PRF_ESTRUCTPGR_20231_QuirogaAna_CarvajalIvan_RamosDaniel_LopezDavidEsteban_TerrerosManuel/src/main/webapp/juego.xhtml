@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+<style>
+header{
+  width: 100%;
+  height: 100px;
+  background: rgb(200, 21, 21);  /* fallback for old browsers */ 
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+ }
+ .label{
+   list-style: none;
+   font-weight: bold;
+   font: oblique bold 120% cursive;
+   color: white;
+}
+.label1{
+   position: absolute;
+   top: -10px; /* y */
+   left: 250px; /* x */
+}
+.label2{
+   position: absolute;
+   top: -10px;
+   left: 500px;
+}
+.label3{
+   position: absolute;
+   top: -10px;
+   left: 750px;
+}
+.logo img{
+  width: 165px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+.botonsalir{
+	position: absolute;
+	top: 25px;
+    left: 1030px;
+    width: 150px;
+  	height: 50px;
+  	font-size: 1.2rem;
+  	border-radius: 30px;
+}
+.panelprincipal{
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 1150px;
+  height: 585px;
+  top: 120px;
+  left: 40px;
+  background: #E59866;
+}
+.opciones{
+  width: 20;
+  height: 40px;
+}
+.retroceder {
+  position: absolute;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  top: 425px;
+  left: 490px;
+  width: 80px;
+  height: 40px
+}
+.retroceder1 {
+ position: absolute;
+ width: 80px;
+  height: 40px;
+  top: 425px;
+  left: 490px;
+}
+ .consultar {
+  position: absolute;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  top: 425px;
+  left: 590px;
+  width: 80px;
+  height: 40px;
+}
+.consultar1 {
+   position: absolute;
+   top: 425px;
+   left: 590px;
+   width: 80px;
+   height: 40px;
+}
+.continuar {
+  position: absolute;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  top: 425px;
+  left: 690px;
+  width: 80px;
+  height: 40px;
+}
+.continuar1 {
+  position: absolute;
+  top: 425px;
+  left: 690px;
+  width: 80px;
+  height: 40px;
+}
+.mazo{
+  position: absolute;
+  width: 210;
+  height: 245px;
+  top: 160px;
+  left: 540px;
+  border-radius: 10px;
+ }
+.mazo img{
+  width: 210;
+  height: 210px;
+}
+.jugador{
+	position: absolute;
+	top: 118px;
+	left: 520px;
+	font-weight: bold;
+}
+.aleatorio{
+	position: absolute;
+	width: 210px;  /*ancho*/
+	height: 270px;  /*alto*/
+	top: 155px;
+	left: 850px;
+	border-radius: 20px;
+}
+.numcartas{
+   /*background: #95A5A6;  */
+   position: absolute;
+   width: 220px;
+   height: 80px;
+   left: 165px; /* x */
+   top: 150px;  /* y */
+   color: black; 
+   border-radius: 10px;
+   list-style: none;
+   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+   font-weight: bold;
+ }
+ .recuadro {
+  	background-color: #ccc;
+  	border: 2px solid #000;
+  	width: 1000px;
+  	height: 200px;
+  	position: absolute;
+	top: 480px;
+  	left: 120px;
+  	border-radius: 15px;
+}
+.carta1{
+	width: 140px;
+  	height: 170px;
+  	position: absolute;
+	top: 21px;
+  	left: 35px;
+  	border-radius: 6px;
+}
+.carta2{
+	width: 140px;
+  	height: 170px;
+  	position: absolute;
+	top: 21px;
+  	left: 230px;
+  	border-radius: 6px;
+}
+.carta3{
+	width: 140px;
+  	height: 170px;
+  	position: absolute;
+	top: 21px;
+  	left: 420px;
+  	border-radius: 6px;
+}
+
+.carta4{
+	width: 140px;
+  	height: 170px;
+  	position: absolute;
+	top: 21px;
+  	left: 620px;
+  	border-radius: 6px;
+}
+.carta5{
+	width: 140px;
+  	height: 170px;
+  	position: absolute;
+	top: 21px;
+  	left: 820px;
+  	border-radius: 6px;
+}
+.carta1:hover {
+  opacity: 0.5;
+}
+.carta2:hover {
+  opacity: 0.5;
+}
+.carta3:hover {
+  opacity: 0.5;
+}
+.carta4:hover {
+  opacity: 0.5;
+}
+.carta5:hover {
+  opacity: 0.5;
+}
+.recuadroColores {
+	padding: 10px; /* establece un espacio interno de 20 píxeles alrededor del contenido */
+	display: grid;
+	grid-template-columns: repeat(2, 1fr); /* define tres columnas de igual tamaño */
+  	grid-template-rows: repeat(2, 1fr); /* define dos filas de igual tamaño */
+  	gap: 20px; /* establece un espacio de 10 píxeles entre las celdas de la cuadrícula */
+	background-color: #ccc;
+	border: 2px solid #000;
+	width: 180px;
+	height: 180px;
+	position: absolute;
+	top: 250px;
+	left: 200px;
+	border-radius: 15px;
+}
+.rojo{
+	
+	border-radius: 30px;
+	background-color: red;
+	
+}
+.verde{
+	border-radius: 30px;
+	background-color: green;
+}
+.amarillo{
+	border-radius: 30px;
+	background-color: yellow;
+}
+.azul{
+	border-radius: 30px;
+	background-color: blue;
+}
+.rojo:hover {
+	opacity: 0.5;
+}
+.verde:hover {
+	opacity: 0.5;
+}
+.amarillo:hover {
+	opacity: 0.5;
+}
+.azul:hover {
+	opacity: 0.5;
+}
+
+
+</style>
+</h:head>
+    <header>
+       <label class="logo">
+         <h:graphicImage styleClass="logo" name="Img/UNOLogo.png"></h:graphicImage>
+       </label>
+       <ul class="label">
+         <li class="label1"><h3>Jugador Uno  #{jugadoresBean.jugador1}</h3></li>
+         <li class="label2"><h3>Jugador dos #{jugadoresBean.jugador2}</h3></li>
+         <li class="label3"><h3>Jugador tres #{jugadoresBean.jugador3}</h3></li>
+       </ul>
+       <h:commandButton styleClass="botonsalir" value="salir" action="#{jugadoresBean.salir}"/>
+    </header>
+<h:body>
+
+    <div>
+        <h:graphicImage styleClass="panelprincipal" name="Img/Fondo.png"></h:graphicImage>	
+    </div>
+   
+    <div class="opciones">
+    <h:commandButton styleClass="retroceder" value="retroceder">
+        <h:graphicImage styleClass="retroceder1" name="Img/Izquierda.png"></h:graphicImage>
+    </h:commandButton>
+      <h:commandButton styleClass="consultar" value="consultar">
+        <h:graphicImage styleClass="consultar1" name="Img/Lupa.png"></h:graphicImage>
+    </h:commandButton>
+    <h:commandButton styleClass="continuar" value="continuar">
+        <h:graphicImage styleClass="continuar1" name="Img/derecha.png"></h:graphicImage>
+    </h:commandButton>
+    </div>
+      <div>
+        <div class="jugador">
+            <h4>Player </h4>
+        </div>   
+        <h:commandButton styleClass="mazo" value="mazo">
+            <h:graphicImage styleClass="mazo" name="Img/respaldoCarta.png"></h:graphicImage>
+        </h:commandButton>
+    </div>
+    
+      <div>
+          <h:commandButton styleClass="aleatorio" value="aleatorio"></h:commandButton>
+      </div>
+      
+      <div class="numcartas">
+       <ul>
+         <li>Jugador 1:</li>
+         <li>Jugador 2:</li>
+         <li>Jugador 3:</li>
+       </ul>
+    </div>
+      <div class="recuadro">
+	   <div class="cartas">
+	     <h:commandButton styleClass="carta1" value="1"></h:commandButton>
+	     <h:commandButton styleClass="carta2" value="2"></h:commandButton>
+	     <h:commandButton styleClass="carta3" value="3"></h:commandButton>
+	     <h:commandButton styleClass="carta4" value="4"></h:commandButton>
+	     <h:commandButton styleClass="carta5" value="5"></h:commandButton>
+		</div>
+	</div>
+	<div class="recuadroColores">
+	    <h:commandButton styleClass="rojo" />
+	    <h:commandButton styleClass="verde" />
+	    <h:commandButton styleClass="azul" />
+	    <h:commandButton styleClass="amarillo" />
+	</div>
+</h:body>
+</html>
