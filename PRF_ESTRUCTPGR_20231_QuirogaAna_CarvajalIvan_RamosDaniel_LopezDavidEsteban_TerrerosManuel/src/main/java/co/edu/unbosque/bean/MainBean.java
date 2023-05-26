@@ -16,16 +16,18 @@ public class MainBean implements Serializable{
 	
 	public String navegar() {
 		log = new LogicaPrincipal();
-		log.setJug1(usuario1);
-		log.setJug2(usuario2);
-		log.setJug3(aprendiz);
+//		log.setJug1(usuario1);
+//		log.setJug2(usuario2);
+//		log.setJug3(aprendiz);
+		log.elegirJugador(usuario1, usuario2, aprendiz);
 		log.distribuirCartasYJugadores();
+		System.out.println("------***************------");
 		System.out.println(log.getJug1());
 		System.out.println(log.mostrarCartasJugador(usuario1));
 		System.out.println(log.getJug2());
 		System.out.println(log.mostrarCartasJugador(usuario2));
 		System.out.println(log.getJug3());
-		System.out.println(log.mostrarCartasJugador(aprendiz));
+		System.out.println(log.mostrarCartasJugador(aprendiz));	
 		log.agregarPilaDescartar(log.quitarPrimeraCartaPilaRobar());
 		
 
@@ -35,31 +37,54 @@ public class MainBean implements Serializable{
 	public String mostrarUltimaCartaMazo() {
 		Carta car = log.consultarPilaDescartar();
 		String res = "";
+		 // No me va a dejar a hacer la conversion a booleano
+		
 		if(car != null) {
-			if(car.getColor().equalsIgnoreCase("Amarillo")) {
-			res="Cartas/Amarillo/"+car.getNumero()+car.getColor()+".jpg";
+			
+			switch (car.getColor()){
+			case "Amarillo": 
+				res = "Cartas/Amarillo/"+car.getNumero()+car.getColor()+".jpg";
+				break;
+		    case "Rojo":
+		    	res = "Cartas/Rojo/"+car.getNumero()+car.getColor()+".jpg";
+		    	break;
+		    case "Azul":
+		    	res = "Cartas/Azul/"+car.getNumero()+car.getColor()+".jpg";
+		    	break;
+		    case "Verde":
+		    	res = "Cartas/Verde/"+car.getNumero()+car.getColor()+".jpg";
+		    	break;
+		    case "Negro":
+		    	res = "Cartas/Negro/"+car.getNumero()+car.getColor()+".jpg";
+			default:
+				res="";
 			}
-			if(car.getColor().equalsIgnoreCase("Rojo")) {
-				res="Cartas/Rojo/"+car.getNumero()+car.getColor()+".jpg";
-				}
-			if(car.getColor().equalsIgnoreCase("Azul")) {
-				res="Cartas/Azul/"+car.getNumero()+car.getColor()+".jpg";
-				}
-			if(car.getColor().equalsIgnoreCase("Verde")) {
-				res="Cartas/Verde/"+car.getNumero()+car.getColor()+".jpg";
-				}
-			if(car.getColor().equalsIgnoreCase("Negro")) {
-				res="Cartas/Negro/"+car.getNumero()+car.getColor()+".jpg";
-				}
-			System.out.println(res);
+//			if(car.getColor().equalsIgnoreCase("Amarillo")) {
+//			res="Cartas/Amarillo/"+car.getNumero()+car.getColor()+".jpg";
+//			}
+//			if(car.getColor().equalsIgnoreCase("Rojo")) {
+//				res="Cartas/Rojo/"+car.getNumero()+car.getColor()+".jpg";
+//				}
+//			if(car.getColor().equalsIgnoreCase("Azul")) {
+//				res="Cartas/Azul/"+car.getNumero()+car.getColor()+".jpg";
+//				}
+//			if(car.getColor().equalsIgnoreCase("Verde")) {
+//				res="Cartas/Verde/"+car.getNumero()+car.getColor()+".jpg";
+//				}
+//			if(car.getColor().equalsIgnoreCase("Negro")) {
+//				res="Cartas/Negro/"+car.getNumero()+car.getColor()+".jpg";
+//				}
+//			System.out.println(res);
 		}
 		return res;
 	}
 
 
 	public String getUsuario1() {
+		System.out.println("---->"+usuario1+ "<----");
 		return usuario1;
 	}
+
 
 	public void setUsuario1(String usuario1) {
 		this.usuario1 = usuario1;
