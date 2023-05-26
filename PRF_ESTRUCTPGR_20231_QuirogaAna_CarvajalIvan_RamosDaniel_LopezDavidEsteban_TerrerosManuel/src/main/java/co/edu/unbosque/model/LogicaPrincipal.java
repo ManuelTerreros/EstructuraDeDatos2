@@ -186,6 +186,15 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 		montoDescartar.push(carta);
 	}
 	
+	public Carta quitarPrimeraCartaPilaRobar() {
+		return montoRobar.pop();
+	}
+	
+	public Carta consultarPilaDescartar() {
+		Carta nue =montoDescartar.peek();
+		return nue;
+	}
+	
 
 	public ArrayList<Carta> mostrarCartasJugador(String nombre) {
 		if (jug1.equals(nombre)) {

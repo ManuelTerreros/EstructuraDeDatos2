@@ -308,7 +308,7 @@ header{
             <h4>Player </h4>
         </div>   
         <h:commandButton styleClass="mazo" value="mazo">
-            <h:graphicImage styleClass="mazo" name="Img/respaldoCarta.png"></h:graphicImage>
+            <h:graphicImage styleClass="mazo" name="#{mainBean.mostrarUltimaCartaMazo()}"></h:graphicImage>
         </h:commandButton>
     </div>
     
@@ -332,11 +332,6 @@ header{
 	     <h:commandButton styleClass="carta5" value="5"></h:commandButton>
 		</div>
 	</div>
-	<div class="recuadroColores">
-	    <h:commandButton styleClass="rojo" />
-	    <h:commandButton styleClass="verde" />
-	    <h:commandButton styleClass="azul" />
-	    <h:commandButton styleClass="amarillo" />
-	</div>
+	
 </h:body>
 </html>
