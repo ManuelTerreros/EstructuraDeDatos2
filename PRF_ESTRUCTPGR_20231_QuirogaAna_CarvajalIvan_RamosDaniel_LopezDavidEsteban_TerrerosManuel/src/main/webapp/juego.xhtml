@@ -280,11 +280,11 @@ header{
          <h:graphicImage styleClass="logo" name="Img/UNOLogo.png"></h:graphicImage>
        </label>
        <ul class="label">
-         <li class="label1"><h3>Jugador Uno  #{jugadoresBean.jugador1}</h3></li>
-         <li class="label2"><h3>Jugador dos #{jugadoresBean.jugador2}</h3></li>
-         <li class="label3"><h3>Jugador tres #{jugadoresBean.jugador3}</h3></li>
+         <li class="label1"><h3>Jugador Uno  #{mainBean.usuario1}</h3></li>
+         <li class="label2"><h3>Jugador dos #{mainBean.usuario2}</h3></li>
+         <li class="label3"><h3>Jugador tres #{mainBean.aprendiz}</h3></li>
        </ul>
-       <h:commandButton styleClass="botonsalir" value="salir" action="#{jugadoresBean.salir}"/>
+       <h:commandButton styleClass="botonsalir" value="salir" action="#{mainBean.salir}"/>
     </header>
 <h:body>
 
