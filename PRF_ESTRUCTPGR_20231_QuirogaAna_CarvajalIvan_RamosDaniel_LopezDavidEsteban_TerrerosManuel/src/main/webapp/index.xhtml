@@ -100,12 +100,12 @@ form {
 		   <p:panel header="Jugadores" styleClass="formulario" style="width:400px">
 			<h:panelGrid columns="2" cellpadding="5">
 				<h:outputLabel value="Jugador1:" styleClass="subtitulos"/>
-				<p:inputText id="cedula" value="#{jugadoresBean.jugador1}" styleClass="field"/>
+				<p:inputText id="usuario1" value="#{mainBean.usuario1}" required="true" styleClass="field"/>
 				<h:outputLabel value="Jugador2:" styleClass="subtitulos"/>
-				<p:inputText id="nomcliente" value="#{jugadoresBean.jugador2}" styleClass="field"/>
+				<p:inputText id="usuario2" value="#{mainBean.usuario2}" required="true" styleClass="field"/>
 				<h:outputLabel value="Jugador3:" styleClass="subtitulos"/>
-				<p:inputText id="direccion" value="#{jugadoresBean.jugador3}" styleClass="field"  />
-				<h:commandButton value="Jugar" styleClass="button" action="#{jugadoresBean.juego()}"/>
+				<p:inputText id="aprendiz" value="#{mainBean.aprendiz}" required="true" styleClass="field"  />
+				<h:commandButton value="Jugar" styleClass="button" action="#{mainBean.navegar()}"/>
 			</h:panelGrid>
 		</p:panel>
 		</div>
