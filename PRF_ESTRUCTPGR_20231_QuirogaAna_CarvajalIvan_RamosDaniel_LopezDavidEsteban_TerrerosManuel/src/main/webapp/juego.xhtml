@@ -291,21 +291,22 @@ header{
     <div>
         <h:graphicImage styleClass="panelprincipal" name="Img/Fondo.png"></h:graphicImage>	
     </div>
-   
+   <h:form>
     <div class="opciones">
     <h:commandButton styleClass="retroceder" value="retroceder">
-        <h:graphicImage styleClass="retroceder1" name="Img/Izquierda.png"></h:graphicImage>
+        <h:graphicImage styleClass="retroceder" name="Img/Izquierda.png"></h:graphicImage>
     </h:commandButton>
       <h:commandButton styleClass="consultar" value="consultar">
-        <h:graphicImage styleClass="consultar1" name="Img/Lupa.png"></h:graphicImage>
+        <h:graphicImage styleClass="consultar" name="Img/Lupa.png"></h:graphicImage>
     </h:commandButton>
-    <h:commandButton styleClass="continuar" value="continuar">
-        <h:graphicImage styleClass="continuar1" name="Img/derecha.png"></h:graphicImage>
+    <h:commandButton styleClass="continuar" value="continuar" action="#{mainBean.adelantarCartasJugador()}">
+        
     </h:commandButton>
     </div>
+    </h:form>
       <div>
         <div class="jugador">
-            <h4>Player </h4>
+            <h4>Player #{mainBean.usuarioJugando()}</h4>
         </div>   
         <h:commandButton styleClass="mazo" value="mazo">
             <h:graphicImage styleClass="mazo" name="#{mainBean.mostrarUltimaCartaMazo()}"></h:graphicImage>
@@ -323,15 +324,22 @@ header{
          <li>Jugador 3:</li>
        </ul>
     </div>
+    <h:form>
       <div class="recuadro">
 	   <div class="cartas">
-	     <h:commandButton styleClass="carta1" value="1"></h:commandButton>
-	     <h:commandButton styleClass="carta2" value="2"></h:commandButton>
-	     <h:commandButton styleClass="carta3" value="3"></h:commandButton>
-	     <h:commandButton styleClass="carta4" value="4"></h:commandButton>
-	     <h:commandButton styleClass="carta5" value="5"></h:commandButton>
+	     <h:commandButton styleClass="carta1" value="carta1">
+	      <h:graphicImage styleClass="carta1" name="#{mainBean.cart1}"></h:graphicImage></h:commandButton>
+	     <h:commandButton styleClass="carta2" value="carta2">
+	      <h:graphicImage styleClass="carta2" name="#{mainBean.cart2}"></h:graphicImage></h:commandButton>
+	     <h:commandButton styleClass="carta3" value="carta3">
+	      <h:graphicImage styleClass="carta3" name="#{mainBean.cart3}"></h:graphicImage></h:commandButton>
+	     <h:commandButton styleClass="carta4" value="carta4">
+	      <h:graphicImage styleClass="carta4" name="#{mainBean.cart4}"></h:graphicImage></h:commandButton>
+	     <h:commandButton styleClass="carta5" value="carta5">
+	      <h:graphicImage styleClass="carta5" name="#{mainBean.cart5}"></h:graphicImage></h:commandButton>
 		</div>
 	</div>
+	</h:form>
 	
 </h:body>
 </html>
