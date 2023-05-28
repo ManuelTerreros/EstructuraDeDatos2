@@ -284,7 +284,7 @@ header{
          <li class="label2"><h3><b> #{mainBean.usuario2}</b></h3></li>
          <li class="label3"><h3><b> #{mainBean.aprendiz}</b></h3></li>
        </ul>
-       <h:commandButton styleClass="botonsalir" value="salir" action="#{mainBean.salir}"/>
+       <h:commandButton styleClass="botonsalir" value="salir" action="#{mainBean.salir()}"/>
     </header>
 <h:body>
 
@@ -319,9 +319,9 @@ header{
       
       <div class="numcartas">
        <ul>
-         <li>Jugador 1:</li>
-         <li>Jugador 2:</li>
-         <li>Jugador 3:</li>
+         <li>Jugador 1: </li>
+         <li>Jugador 2: </li>
+         <li>Jugador 3: </li>
        </ul>
     </div>
     <h:form>
