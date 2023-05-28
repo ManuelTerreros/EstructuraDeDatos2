@@ -46,6 +46,7 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 		jug2 = jugadores.get(1);
 		jug3 = jugadores.get(2);
 		
+		
 	}
 	
 	public Carta sacarCarta() {
