@@ -86,9 +86,42 @@ form {
 	margin-left: 50px; 
 }
 
+#pantallaCarga {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#pantallaCarga img {
+	width: 100%; /* Ajusta el tamaño de la imagen según tus necesidades */
+	height: 100%;
+	/* Ajusta el tamaño de la imagen según tus necesidades */
+}
+
 </style>
+<script type="text/javascript">
+		window.onload = function() {
+			var pantallaCarga = document.getElementById('pantallaCarga');
+			pantallaCarga.style.display = 'flex'; // Mostrar la pantalla de carga al cargar la página
+
+			// Ocultar la pantalla de carga después de 3 segundos (3000 milisegundos)
+			setTimeout(function() {
+				pantallaCarga.style.display = 'none';
+			}, 3000);
+		};
+	</script>
 </h:head>
 <h:body>
+		<div id="pantallaCarga">
+			<h:graphicImage name="Img/pantallaCargaUNO.png" />
+		</div>
       <div class="contenedor">
          <h:graphicImage styleClass="img-esquina" name="Img/UNOLogo.png" />
       </div>

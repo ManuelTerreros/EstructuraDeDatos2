@@ -194,7 +194,15 @@ public class MainBean implements Serializable{
 		}
 		}
 	}
+	
+	public void mostrarNumCartas() {
+		
+		log.mostrarCartasJugador(aprendiz);
+	}
 
+	public String salir() {
+		return "index.xhtml";
+	}
 
 	public String getUsuario1() {
 		System.out.println("---->"+usuario1+ "<----");
