@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ApplicationScoped; // o el alcance que desees utilizar
+
 
 import co.edu.unbosque.model.Carta;
 import co.edu.unbosque.model.LogicaPrincipal;
 
+@ApplicationScoped
 @ManagedBean
 public class MainBean implements Serializable{
 	
@@ -16,7 +19,7 @@ public class MainBean implements Serializable{
 	private LogicaPrincipal log=new LogicaPrincipal();
 	private int turn= 1;
 	private Carta car1=new Carta(0, null), car2=new Carta(0, null), car3=new Carta(0, null), car4=new Carta(0, null), car5=new Carta(0, null);
-	private int contCarMax , contCarMin;
+	private int contCarMax=0 , contCarMin=0, resta=1, respaldo=contCarMin, consta=0;
 	private ArrayList<Carta> cartas= new ArrayList<>();
 	private ArrayList<Carta> movCartas = new ArrayList<>();
 	
@@ -70,15 +73,21 @@ public class MainBean implements Serializable{
 	}
 	
 	
-	//TODAVIA NO FUNCIONA
+	
 	public String adelantarCartasJugador() {
 		
-		System.out.println("Hola");
-		contCarMin= contCarMin +1;
+		
+		if(contCarMin==contCarMax-1) {
+			contCarMin = -1;
+		}
+		
+		
+		contCarMin =contCarMin+1;
 		car1 = car2;
 		car2= car3;
+		car3 = car4;
 		car4 = car5;
-		car5 = movCartas.get(contCarMin);
+		car5 = cartas.get(contCarMin);
 		
 		cart1 = cambiarAImagen(car1);
 		cart2 = cambiarAImagen(car2);
@@ -86,14 +95,121 @@ public class MainBean implements Serializable{
 		cart4 = cambiarAImagen(car4);
 		cart5 = cambiarAImagen(car5);
 		System.out.println("El boton funciona");
+		System.out.println("carta1"+car1);
+		System.out.println("carta2"+car2);
+		System.out.println("carta3"+car3);
+		System.out.println("carta4"+car4);
+		System.out.println("carta5"+car5);
+
+
 		
-		if(contCarMin==contCarMax) {
-			contCarMin = 0;
-		}
-		
-		return "juego.xhtml";
+		return "";
 		
 	}
+	
+	public String atrasCartasJugador() {
+
+		
+		int resp, otro;
+		
+		if(resta==contCarMax-1) {
+			resta =1;
+		}
+		
+		otro = consta-resta;
+		
+		resp = contCarMax + otro;
+		
+		car5=car4;
+		car4=car3;
+		car3=car2;
+		car2=car1;
+		car1=cartas.get(resp);
+		
+		
+		resta++;
+		
+		
+		return "";
+		
+	}
+	
+	public String robarCartaMazoRobar() {
+		Carta cr =log.sacarCarta();
+		log.robarCarta(usuarioJugando(), cr);
+		System.out.println("Cartas jugador con una robada");
+		System.out.println(log.mostrarCartasJugador(usuarioJugando()));
+		cartas = log.mostrarCartasJugador(usuarioJugando());
+		contCarMax = cartas.size();
+	
+		return "";
+	}
+	
+	public String elegirCartaC1() {
+		
+		System.out.println("Nooooooooooooooo");
+		if(log.getMontoDescartar().peek().getColor().equals(car1.getColor()) || log.getMontoDescartar().peek().getNumero()==car1.getNumero() ) {
+		log.elegirCarta(usuarioJugando(), car1);
+		log.agregarPilaDescartar(car1);
+		}else {
+			
+		}
+		System.out.println("siiiiiiiiiiiii");
+		
+		return "";
+	}
+	public String elegirCartaC2() {
+		
+		System.out.println("Nooooooooooooooo");
+		if(log.getMontoDescartar().peek().getColor().equals(car2.getColor()) || log.getMontoDescartar().peek().getNumero()==car2.getNumero() ) {
+		log.elegirCarta(usuarioJugando(), car2);
+		log.agregarPilaDescartar(car2);
+		}else {
+			
+		}
+		System.out.println("siiiiiiiiiiii");
+		
+		return "";
+	}
+	public String elegirCartaC3() {
+	
+	System.out.println("Nooooooooooooooo");
+	if(log.getMontoDescartar().peek().getColor().equals(car3.getColor()) || log.getMontoDescartar().peek().getNumero()==car3.getNumero() ) {
+	log.elegirCarta(usuarioJugando(), car3);
+	log.agregarPilaDescartar(car3);
+	}else {
+		
+	}
+	System.out.println("siiiiiiiiiiii");
+	
+	return "";
+}
+	public String elegirCartaC4() {
+	
+	System.out.println("Nooooooooooooooo");
+	if(log.getMontoDescartar().peek().getColor().equals(car4.getColor()) || log.getMontoDescartar().peek().getNumero()==car4.getNumero() ) {
+	log.elegirCarta(usuarioJugando(), car4);
+	log.agregarPilaDescartar(car4);
+	}else {
+		
+	}
+	System.out.println("siiiiiiiiiiii");
+	
+	return "";
+}
+	public String elegirCartaC5() {
+	
+	System.out.println("Nooooooooooooooo");
+	if(log.getMontoDescartar().peek().getColor().equals(car5.getColor()) || log.getMontoDescartar().peek().getNumero()==car5.getNumero() ) {
+	log.elegirCarta(usuarioJugando(), car5);
+	log.agregarPilaDescartar(car5);
+	}else {
+		
+	}
+	System.out.println("siiiiiiiiiiii");
+	
+	return "";
+}
 	
 	//Este metodo funciona para mostrar cualquiera de las imagenes de las cartas
 	public String cambiarAImagen(Carta carta) {
@@ -174,7 +290,7 @@ public class MainBean implements Serializable{
 	public void hacerMontoCartaJugador() {
 		cartas = log.mostrarCartasJugador(usuarioJugando());
 		contCarMax=cartas.size();
-		contCarMin = 5;
+		contCarMin = 4;
 	}
 	
 	//public String mostrarBotonCarta() {
@@ -194,15 +310,7 @@ public class MainBean implements Serializable{
 		}
 		}
 	}
-	
-	public void mostrarNumCartas() {
-		
-		log.mostrarCartasJugador(aprendiz);
-	}
 
-	public String salir() {
-		return "index.xhtml";
-	}
 
 	public String getUsuario1() {
 		System.out.println("---->"+usuario1+ "<----");
@@ -353,3 +461,4 @@ public class MainBean implements Serializable{
 	
 
 }
+

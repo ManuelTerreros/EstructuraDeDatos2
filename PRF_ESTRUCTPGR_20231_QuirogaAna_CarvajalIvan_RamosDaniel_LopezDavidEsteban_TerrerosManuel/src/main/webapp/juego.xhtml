@@ -226,51 +226,8 @@ header{
 .carta5:hover {
   opacity: 0.5;
 }
-.recuadroColores {
-	padding: 10px; /* establece un espacio interno de 20 píxeles alrededor del contenido */
-	display: grid;
-	grid-template-columns: repeat(2, 1fr); /* define tres columnas de igual tamaño */
-  	grid-template-rows: repeat(2, 1fr); /* define dos filas de igual tamaño */
-  	gap: 20px; /* establece un espacio de 10 píxeles entre las celdas de la cuadrícula */
-	background-color: #ccc;
-	border: 2px solid #000;
-	width: 180px;
-	height: 180px;
-	position: absolute;
-	top: 250px;
-	left: 200px;
-	border-radius: 15px;
-}
-.rojo{
-	
-	border-radius: 30px;
-	background-color: red;
-	
-}
-.verde{
-	border-radius: 30px;
-	background-color: green;
-}
-.amarillo{
-	border-radius: 30px;
-	background-color: yellow;
-}
-.azul{
-	border-radius: 30px;
-	background-color: blue;
-}
-.rojo:hover {
-	opacity: 0.5;
-}
-.verde:hover {
-	opacity: 0.5;
-}
-.amarillo:hover {
-	opacity: 0.5;
-}
-.azul:hover {
-	opacity: 0.5;
-}
+
+
 
 
 </style>
@@ -284,7 +241,7 @@ header{
          <li class="label2"><h3><b> #{mainBean.usuario2}</b></h3></li>
          <li class="label3"><h3><b> #{mainBean.aprendiz}</b></h3></li>
        </ul>
-       <h:commandButton styleClass="botonsalir" value="salir" action="#{mainBean.salir()}"/>
+       <h:commandButton styleClass="botonsalir" value="salir" action="#{mainBean.salir}"/>
     </header>
 <h:body>
 
@@ -293,14 +250,12 @@ header{
     </div>
    <h:form>
     <div class="opciones">
-    <h:commandButton styleClass="retroceder" value="retroceder">
-        <h:graphicImage styleClass="retroceder" name="Img/Izquierda.png"></h:graphicImage>
+    <h:commandButton styleClass="retroceder" value="retroceder" action="#{mainBean.atrasCartasJugador()}">
     </h:commandButton>
-      <h:commandButton styleClass="consultar" value="consultar">
+      <h:commandButton styleClass="consultar" value="consultar" >
         <h:graphicImage styleClass="consultar" name="Img/Lupa.png"></h:graphicImage>
     </h:commandButton>
     <h:commandButton styleClass="continuar" value="continuar" action="#{mainBean.adelantarCartasJugador()}">
-        
     </h:commandButton>
     </div>
     </h:form>
@@ -313,29 +268,32 @@ header{
         </h:commandButton>
     </div>
     
+       <h:form>
       <div>
-          <h:commandButton styleClass="aleatorio" value="aleatorio"></h:commandButton>
+          <h:commandButton styleClass="aleatorio" value="aleatorio" action="#{mainBean.robarCartaMazoRobar()}"></h:commandButton>
       </div>
+      </h:form>
       
       <div class="numcartas">
        <ul>
-         <li>Jugador 1: </li>
-         <li>Jugador 2: </li>
-         <li>Jugador 3: </li>
+         <li>Jugador 1:</li>
+         <li>Jugador 2:</li>
+         <li>Jugador 3:</li>
        </ul>
     </div>
     <h:form>
       <div class="recuadro">
 	   <div class="cartas">
-	     <h:commandButton styleClass="carta1" value="carta1">
-	      <h:graphicImage styleClass="carta1" name="#{mainBean.cart1}"></h:graphicImage></h:commandButton>
-	     <h:commandButton styleClass="carta2" value="carta2">
+	    <h:graphicImage styleClass="carta1" value="car1" name="#{mainBean.cart1}"></h:graphicImage>
+	     <h:commandButton styleClass="carta1" value="carta1" action="#{mainBean.elegirCartaC1()}">
+	     </h:commandButton>
+	     <h:commandButton styleClass="carta2" value="carta2" action="#{mainBean.elegirCartaC2()}">
 	      <h:graphicImage styleClass="carta2" name="#{mainBean.cart2}"></h:graphicImage></h:commandButton>
-	     <h:commandButton styleClass="carta3" value="carta3">
+	     <h:commandButton styleClass="carta3" value="carta3" action="#{mainBean.elegirCartaC3()}">
 	      <h:graphicImage styleClass="carta3" name="#{mainBean.cart3}"></h:graphicImage></h:commandButton>
-	     <h:commandButton styleClass="carta4" value="carta4">
+	     <h:commandButton styleClass="carta4" value="carta4" action="#{mainBean.elegirCartaC4()}">
 	      <h:graphicImage styleClass="carta4" name="#{mainBean.cart4}"></h:graphicImage></h:commandButton>
-	     <h:commandButton styleClass="carta5" value="carta5">
+	     <h:commandButton styleClass="carta5" value="carta5" action="#{mainBean.elegirCartaC5()}">
 	      <h:graphicImage styleClass="carta5" name="#{mainBean.cart5}"></h:graphicImage></h:commandButton>
 		</div>
 	</div>
