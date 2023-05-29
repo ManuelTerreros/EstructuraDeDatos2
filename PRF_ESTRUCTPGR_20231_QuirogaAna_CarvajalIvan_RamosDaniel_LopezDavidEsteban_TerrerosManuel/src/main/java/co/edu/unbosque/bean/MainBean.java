@@ -22,6 +22,7 @@ public class MainBean implements Serializable{
 	private int contCarMax=0 , contCarMin=0, resta=1, respaldo=contCarMin, consta=0;
 	private ArrayList<Carta> cartas= new ArrayList<>();
 	private ArrayList<Carta> movCartas = new ArrayList<>();
+	private boolean direccionReloj = true;
 	
 	
 	public String navegar() {
@@ -151,6 +152,9 @@ public class MainBean implements Serializable{
 		if(log.getMontoDescartar().peek().getColor().equals(car1.getColor()) || log.getMontoDescartar().peek().getNumero()==car1.getNumero() ) {
 		log.elegirCarta(usuarioJugando(), car1);
 		log.agregarPilaDescartar(car1);
+		cartas = log.mostrarCartasJugador(usuarioJugando());
+		contCarMax = cartas.size();
+		ponerImagenBotonesJugador();
 		}else {
 			
 		}
@@ -164,6 +168,10 @@ public class MainBean implements Serializable{
 		if(log.getMontoDescartar().peek().getColor().equals(car2.getColor()) || log.getMontoDescartar().peek().getNumero()==car2.getNumero() ) {
 		log.elegirCarta(usuarioJugando(), car2);
 		log.agregarPilaDescartar(car2);
+		cartas = log.mostrarCartasJugador(usuarioJugando());
+		contCarMax = cartas.size();
+		ponerImagenBotonesJugador();
+
 		}else {
 			
 		}
@@ -177,6 +185,10 @@ public class MainBean implements Serializable{
 	if(log.getMontoDescartar().peek().getColor().equals(car3.getColor()) || log.getMontoDescartar().peek().getNumero()==car3.getNumero() ) {
 	log.elegirCarta(usuarioJugando(), car3);
 	log.agregarPilaDescartar(car3);
+	cartas = log.mostrarCartasJugador(usuarioJugando());
+	contCarMax = cartas.size();
+	ponerImagenBotonesJugador();
+
 	}else {
 		
 	}
@@ -190,6 +202,10 @@ public class MainBean implements Serializable{
 	if(log.getMontoDescartar().peek().getColor().equals(car4.getColor()) || log.getMontoDescartar().peek().getNumero()==car4.getNumero() ) {
 	log.elegirCarta(usuarioJugando(), car4);
 	log.agregarPilaDescartar(car4);
+	cartas = log.mostrarCartasJugador(usuarioJugando());
+	contCarMax = cartas.size();
+	ponerImagenBotonesJugador();
+
 	}else {
 		
 	}
@@ -203,6 +219,10 @@ public class MainBean implements Serializable{
 	if(log.getMontoDescartar().peek().getColor().equals(car5.getColor()) || log.getMontoDescartar().peek().getNumero()==car5.getNumero() ) {
 	log.elegirCarta(usuarioJugando(), car5);
 	log.agregarPilaDescartar(car5);
+	cartas = log.mostrarCartasJugador(usuarioJugando());
+	contCarMax = cartas.size();
+	ponerImagenBotonesJugador();
+
 	}else {
 		
 	}
@@ -211,6 +231,8 @@ public class MainBean implements Serializable{
 	return "";
 }
 	
+	
+
 	//Este metodo funciona para mostrar cualquiera de las imagenes de las cartas
 	public String cambiarAImagen(Carta carta) {
 	String res = "";
@@ -299,6 +321,18 @@ public class MainBean implements Serializable{
 	//	}
 	//}
 	
+	public String cambioDireccion() {
+		if(direccionReloj==true) {
+			usuarioJugandoHorario();
+			return usuarioJugando();
+		}else {
+			usuarioJugandoAntiHorario();
+			return usuarioJugando();
+		}
+	}
+	
+	
+	
 	public String usuarioJugando() {
 		if(turn == 1) {
 			return log.getJug1();
@@ -310,7 +344,21 @@ public class MainBean implements Serializable{
 		}
 		}
 	}
+	
+	public void usuarioJugandoAntiHorario() {
+		if(turn>0) {
+			turn = turn-1;
+		}else {
+			turn=3;
+		}
+	}
 
+	public void usuarioJugandoHorario() {
+		if(turn<4) {
+		turn = turn +1;}else {
+			turn = 1;
+		}
+	}
 
 	public String getUsuario1() {
 		System.out.println("---->"+usuario1+ "<----");
