@@ -15,7 +15,7 @@ import co.edu.unbosque.model.LogicaPrincipal;
 public class MainBean implements Serializable{
 	
 	private static final long serialVersionUID = -2152389656664659476L;
-	private String usuario1="", usuario2="", aprendiz="",cart1="", cart2="",cart3="",cart4="",cart5="";
+	private String usuario1="", usuario2="", aprendiz="",cart1="", cart2="",cart3="",cart4="",cart5="", usuarioJugando="";
 	private LogicaPrincipal log=new LogicaPrincipal();
 	private int turn= 1;
 	private Carta car1=new Carta(0, null), car2=new Carta(0, null), car3=new Carta(0, null), car4=new Carta(0, null), car5=new Carta(0, null);
@@ -28,6 +28,8 @@ public class MainBean implements Serializable{
 	public String navegar() {
 		log.elegirJugador(usuario1, usuario2, aprendiz);
 		log.distribuirCartasYJugadores();
+		primUsuarioJugando();
+		System.out.println(usuarioJugando);
 		hacerMontoCartaJugador();
 		ponerImagenBotonesJugador();
 		log.agregarPilaDescartar(log.quitarPrimeraCartaPilaRobar());
@@ -51,6 +53,20 @@ public class MainBean implements Serializable{
 	
 	
 	
+	public String getUsuarioJugando() {
+		return usuarioJugando;
+	}
+
+
+
+
+	public void setUsuarioJugando(String usuarioJugando) {
+		this.usuarioJugando = usuarioJugando;
+	}
+
+
+
+
 	public String mostrarUltimaCartaMazo() {
 		Carta car = log.consultarPilaDescartar();
 		String res = "";
@@ -137,10 +153,10 @@ public class MainBean implements Serializable{
 	
 	public String robarCartaMazoRobar() {
 		Carta cr =log.sacarCarta();
-		log.robarCarta(usuarioJugando(), cr);
+		log.robarCarta(usuarioJugando, cr);
 		System.out.println("Cartas jugador con una robada");
-		System.out.println(log.mostrarCartasJugador(usuarioJugando()));
-		cartas = log.mostrarCartasJugador(usuarioJugando());
+		System.out.println(log.mostrarCartasJugador(usuarioJugando));
+		cartas = log.mostrarCartasJugador(usuarioJugando);
 		contCarMax = cartas.size();
 	
 		return "";
@@ -150,11 +166,23 @@ public class MainBean implements Serializable{
 		
 		System.out.println("Nooooooooooooooo");
 		if(log.getMontoDescartar().peek().getColor().equals(car1.getColor()) || log.getMontoDescartar().peek().getNumero()==car1.getNumero() ) {
-		log.elegirCarta(usuarioJugando(), car1);
+		log.elegirCarta(usuarioJugando, car1);
 		log.agregarPilaDescartar(car1);
-		cartas = log.mostrarCartasJugador(usuarioJugando());
-		contCarMax = cartas.size();
-		ponerImagenBotonesJugador();
+		comprobarSiSeUsaComodin(car1);
+		if(pierdeTurno(car1)==false) {
+		String usunuevo=pasarAlOtroTurno();
+		cartas=log.mostrarCartasJugador(usunuevo);
+		contCarMax=cartas.size();
+		ponerImagenBotonesJugador();}
+		
+		System.out.println("------***************------");
+		System.out.println(usuario1);
+		System.out.println(log.mostrarCartasJugador(usuario1));
+		System.out.println(usuario2);
+		System.out.println(log.mostrarCartasJugador(usuario2));
+		System.out.println(aprendiz);
+		System.out.println(log.mostrarCartasJugador(aprendiz));
+		System.out.println("------------***************-----------");	
 		}else {
 			
 		}
@@ -166,9 +194,9 @@ public class MainBean implements Serializable{
 		
 		System.out.println("Nooooooooooooooo");
 		if(log.getMontoDescartar().peek().getColor().equals(car2.getColor()) || log.getMontoDescartar().peek().getNumero()==car2.getNumero() ) {
-		log.elegirCarta(usuarioJugando(), car2);
+		log.elegirCarta(usuarioJugando, car2);
 		log.agregarPilaDescartar(car2);
-		cartas = log.mostrarCartasJugador(usuarioJugando());
+		cartas = log.mostrarCartasJugador(usuarioJugando);
 		contCarMax = cartas.size();
 		ponerImagenBotonesJugador();
 
@@ -183,9 +211,9 @@ public class MainBean implements Serializable{
 	
 	System.out.println("Nooooooooooooooo");
 	if(log.getMontoDescartar().peek().getColor().equals(car3.getColor()) || log.getMontoDescartar().peek().getNumero()==car3.getNumero() ) {
-	log.elegirCarta(usuarioJugando(), car3);
+	log.elegirCarta(usuarioJugando, car3);
 	log.agregarPilaDescartar(car3);
-	cartas = log.mostrarCartasJugador(usuarioJugando());
+	cartas = log.mostrarCartasJugador(usuarioJugando);
 	contCarMax = cartas.size();
 	ponerImagenBotonesJugador();
 
@@ -200,9 +228,9 @@ public class MainBean implements Serializable{
 	
 	System.out.println("Nooooooooooooooo");
 	if(log.getMontoDescartar().peek().getColor().equals(car4.getColor()) || log.getMontoDescartar().peek().getNumero()==car4.getNumero() ) {
-	log.elegirCarta(usuarioJugando(), car4);
+	log.elegirCarta(usuarioJugando, car4);
 	log.agregarPilaDescartar(car4);
-	cartas = log.mostrarCartasJugador(usuarioJugando());
+	cartas = log.mostrarCartasJugador(usuarioJugando);
 	contCarMax = cartas.size();
 	ponerImagenBotonesJugador();
 
@@ -217,9 +245,9 @@ public class MainBean implements Serializable{
 	
 	System.out.println("Nooooooooooooooo");
 	if(log.getMontoDescartar().peek().getColor().equals(car5.getColor()) || log.getMontoDescartar().peek().getNumero()==car5.getNumero() ) {
-	log.elegirCarta(usuarioJugando(), car5);
+	log.elegirCarta(usuarioJugando, car5);
 	log.agregarPilaDescartar(car5);
-	cartas = log.mostrarCartasJugador(usuarioJugando());
+	cartas = log.mostrarCartasJugador(usuarioJugando);
 	contCarMax = cartas.size();
 	ponerImagenBotonesJugador();
 
@@ -310,9 +338,60 @@ public class MainBean implements Serializable{
 	}
 	
 	public void hacerMontoCartaJugador() {
-		cartas = log.mostrarCartasJugador(usuarioJugando());
+		cartas = log.mostrarCartasJugador(usuarioJugando);
 		contCarMax=cartas.size();
 		contCarMin = 4;
+	}
+	
+	public void comprobarSiSeUsaComodin(Carta car) {
+		if(car.getNumero()==14) {
+			if(direccionReloj==true) {
+			log.masDosmasCuatroCartas(4, log.consultarHorarioSiguiente(usuarioJugando));}else {
+				log.masDosmasCuatroCartas(4, log.consultarHorarioAnterior(usuarioJugando));
+			}
+
+		}
+		
+		if(car.getNumero()==13) {
+			
+			log.agregarPilaDescartar(new Carta(0,log.cambioColor()));
+			
+		}
+		
+		if(car.getNumero()==11) {
+			if(direccionReloj==true) {
+				direccionReloj=false;
+			}else {
+				direccionReloj=true;
+			}
+		}
+		
+		if(car.getNumero()==10) {
+			if(direccionReloj==true) {
+				log.masDosmasCuatroCartas(2, log.consultarHorarioSiguiente(usuarioJugando));}else {
+					log.masDosmasCuatroCartas(2, log.consultarHorarioAnterior(usuarioJugando));
+				}
+		}
+		
+	}
+	
+	public boolean pierdeTurno(Carta car) {
+		boolean siEs=false;
+		if(car.getNumero()==12) {
+			siEs=true;
+			if(direccionReloj==true) {
+				usuarioJugando =log.consultarHorarioSaltaTurno(usuarioJugando);
+				cartas=log.mostrarCartasJugador(usuarioJugando);
+				contCarMax=cartas.size();
+				ponerImagenBotonesJugador();
+				}else {
+					usuarioJugando=log.consultarContrarioSaltaTurno(usuarioJugando);
+					cartas=log.mostrarCartasJugador(usuarioJugando);
+					contCarMax=cartas.size();
+					ponerImagenBotonesJugador();
+				}
+		}
+		return siEs;
 	}
 	
 	//public String mostrarBotonCarta() {
@@ -321,43 +400,31 @@ public class MainBean implements Serializable{
 	//	}
 	//}
 	
-	public String cambioDireccion() {
+	public String pasarAlOtroTurno() {
 		if(direccionReloj==true) {
-			usuarioJugandoHorario();
-			return usuarioJugando();
+			usuarioJugando=usuarioJugandoHorario(usuarioJugando);
+			return usuarioJugando;
 		}else {
-			usuarioJugandoAntiHorario();
-			return usuarioJugando();
+			usuarioJugando=usuarioJugandoAntiHorario(usuarioJugando);
+			return usuarioJugando;
 		}
 	}
 	
 	
 	
-	public String usuarioJugando() {
-		if(turn == 1) {
-			return log.getJug1();
-		}else {
-		if(turn ==2) {
-			return log.getJug2();
-		}else {
-			return log.getJug3();
-		}
-		}
+	public String primUsuarioJugando() {
+		usuarioJugando = log.getJug1();
+		return usuarioJugando;
 	}
 	
-	public void usuarioJugandoAntiHorario() {
-		if(turn>0) {
-			turn = turn-1;
-		}else {
-			turn=3;
-		}
+	public String usuarioJugandoAntiHorario(String nom) {
+		String nomNue = log.consultarContrarioSiguiente(nom);
+		return nomNue;
 	}
 
-	public void usuarioJugandoHorario() {
-		if(turn<4) {
-		turn = turn +1;}else {
-			turn = 1;
-		}
+	public String usuarioJugandoHorario(String nom) {
+		String nomNue = log.consultarHorarioSiguiente(nom);
+		return nomNue;
 	}
 
 	public String getUsuario1() {
