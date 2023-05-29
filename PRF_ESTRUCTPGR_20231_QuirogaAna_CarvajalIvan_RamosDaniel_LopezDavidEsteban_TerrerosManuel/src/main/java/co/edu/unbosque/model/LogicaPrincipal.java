@@ -118,12 +118,6 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 		posJugador.agregarInicio(jug2);
 		posJugador.agregarInicio(jug3);
 		
-		System.out.println(jug1);
-		System.out.println(lista1.mostrar());
-		System.out.println(jug2);
-		System.out.println(lista2.mostrar());
-		System.out.println(jug3);
-		System.out.println(lista3.mostrar());
 
 	}
 
@@ -143,6 +137,16 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 			}
 		}
 
+	}
+	
+	public void robarCarta(String nombre, Carta car) {
+		if (jug1.equals(nombre)) {
+				lista1.agregar(montoRobar.pop());
+		} else if (jug2.equals(nombre)) {
+				lista2.agregar(montoRobar.pop());
+		} else if (jug3.equals(nombre)) {
+				lista3.agregar(montoRobar.pop());
+		}
 	}
 
 	public String cambioColor() {
@@ -178,6 +182,8 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 		}
 		return carta;
 	}
+	
+	
 
 	// este metodo agrega cartas a la pila de el centro que es la de descartar, les
 	// dejo a eleccion que quieren que retorne la pila o el array para que sepan
@@ -276,4 +282,12 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 	public void setMontoRobar(Stack<Carta> montoRobar) {
 		this.montoRobar = montoRobar;
 	}
+	public Stack<Carta> getMontoDescartar() {
+		return montoDescartar;
+	}
+	public void setMontoDescartar(Stack<Carta> montoDescartar) {
+		this.montoDescartar = montoDescartar;
+	}
+	
+	
 }
