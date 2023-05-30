@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
+<title>Tablero UNO</title>
 <style>
 header{
   width: 100%;
@@ -284,17 +284,12 @@ header{
     <h:form>
       <div class="recuadro">
 	   <div class="cartas">
-	    <h:graphicImage styleClass="carta1" value="car1" name="#{mainBean.cart1}"></h:graphicImage>
-	     <h:commandButton styleClass="carta1" value="carta1" action="#{mainBean.elegirCartaC1()}">
-	     </h:commandButton>
-	     <h:commandButton styleClass="carta2" value="carta2" action="#{mainBean.elegirCartaC2()}">
-	      <h:graphicImage styleClass="carta2" name="#{mainBean.cart2}"></h:graphicImage></h:commandButton>
-	     <h:commandButton styleClass="carta3" value="carta3" action="#{mainBean.elegirCartaC3()}">
-	      <h:graphicImage styleClass="carta3" name="#{mainBean.cart3}"></h:graphicImage></h:commandButton>
-	     <h:commandButton styleClass="carta4" value="carta4" action="#{mainBean.elegirCartaC4()}">
-	      <h:graphicImage styleClass="carta4" name="#{mainBean.cart4}"></h:graphicImage></h:commandButton>
-	     <h:commandButton styleClass="carta5" value="carta5" action="#{mainBean.elegirCartaC5()}">
-	      <h:graphicImage styleClass="carta5" name="#{mainBean.cart5}"></h:graphicImage></h:commandButton>
+	     <h:commandButton styleClass="carta1" image="/resources/#{mainBean.cart1}" value="carta1" action="#{mainBean.elegirCartaC1()}"/>
+	     <h:commandButton styleClass="carta2" image="/resources/#{mainBean.cart2}" value="carta2" action="#{mainBean.elegirCartaC2()}"/>
+	     <h:commandButton styleClass="carta3" image="/resources/#{mainBean.cart3}" value="carta3" action="#{mainBean.elegirCartaC3()}"/>
+	     <h:commandButton styleClass="carta4" image="/resources/#{mainBean.cart4}" value="carta4" action="#{mainBean.elegirCartaC4()}"/>
+	     <h:commandButton styleClass="carta5" image="/resources/#{mainBean.cart5}" value="carta5" action="#{mainBean.elegirCartaC5()}"/>
+	      
 		</div>
 	</div>
 	</h:form>
