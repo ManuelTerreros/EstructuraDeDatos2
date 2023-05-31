@@ -303,7 +303,9 @@ public class MainBean implements Serializable{
 		
 		if(log.getMontoDescartar().peek().getColor().equals(car1.getColor()) || log.getMontoDescartar().peek().getNumero()==car1.getNumero() || 
 				car1.getColor().equals(color) || car1.getColor().equals("Negro")) {
-			color=car1.getColor();
+			
+				color=car1.getColor();
+			
 		log.elegirCarta(usuarioJugando, car1);
 		log.agregarPilaDescartar(car1);
 		if(comprobarGanador()==false) {
@@ -338,7 +340,7 @@ public class MainBean implements Serializable{
 		
 		if(log.getMontoDescartar().peek().getColor().equals(car2.getColor()) || log.getMontoDescartar().peek().getNumero()==car2.getNumero() || 
 				car2.getColor().equals(color) || car2.getColor().equals("Negro")) {
-			color=car2.getColor();
+				color=car2.getColor();
 		log.elegirCarta(usuarioJugando, car2);
 		log.agregarPilaDescartar(car2);
 		if(comprobarGanador()==false) {
@@ -372,7 +374,7 @@ public class MainBean implements Serializable{
 	
 		if(log.getMontoDescartar().peek().getColor().equals(car3.getColor()) || log.getMontoDescartar().peek().getNumero()==car3.getNumero() || 
 				car3.getColor().equals(color) || car3.getColor().equals("Negro")) {
-			color=car3.getColor();
+				color=car3.getColor();
 		log.elegirCarta(usuarioJugando, car3);
 		log.agregarPilaDescartar(car3);
 		if(comprobarGanador()==false) {
@@ -405,7 +407,7 @@ public class MainBean implements Serializable{
 	
 		if(log.getMontoDescartar().peek().getColor().equals(car4.getColor()) || log.getMontoDescartar().peek().getNumero()==car4.getNumero() || 
 				car4.getColor().equals(color) || car4.getColor().equals("Negro")) {
-			color=car4.getColor();
+				color=car4.getColor();
 		log.elegirCarta(usuarioJugando, car4);
 		log.agregarPilaDescartar(car4);
 		if(comprobarGanador()==false) {
@@ -438,7 +440,8 @@ public class MainBean implements Serializable{
 	
 		if(log.getMontoDescartar().peek().getColor().equals(car5.getColor()) || log.getMontoDescartar().peek().getNumero()==car5.getNumero() || 
 				car5.getColor().equals(color) || car5.getColor().equals("Negro")) {
-			color=car5.getColor();
+			
+				color=car5.getColor();
 		log.elegirCarta(usuarioJugando, car5);
 		log.agregarPilaDescartar(car5);
 		if(comprobarGanador()==false) {
@@ -560,10 +563,10 @@ public class MainBean implements Serializable{
 	
 	public void comprobarSiSeUsaComodin(Carta car) {
 		if(car.getNumero()==14) {
+			color=log.cambioColor();
 			if(direccionReloj==true) {
 			log.masDosmasCuatroCartas(4, log.consultarHorarioAnterior(usuarioJugando));}else {
 				log.masDosmasCuatroCartas(4, log.consultarHorarioSiguiente(usuarioJugando));
-				color=log.cambioColor();
 				
 			}
 
