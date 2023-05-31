@@ -150,8 +150,8 @@ header{
 .numcartas{
    /*background: #95A5A6;  */
    position: absolute;
-   width: 220px;
-   height: 80px;
+   width: 150px;
+   height: 90px;
    left: 165px; /* x */
    top: 150px;  /* y */
    color: black; 
@@ -160,6 +160,50 @@ header{
    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
    font-weight: bold;
  }
+ 
+ .cambioColor{
+   /*background: #95A5A6;  */
+   position: absolute;
+   width: 150px;
+   height: 90px;
+   left: 355px; /* x */
+   top: 150px;  /* y */
+   color: black; 
+   border-radius: 10px;
+   list-style: none;
+   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+   font-weight: bold;
+ }
+ 
+ .cartaRobada{
+   /*background: #95A5A6;  */
+   position: absolute;
+   width: 220px;
+   height: 65px;
+   left: 165px; /* x */
+   top: 250px;  /* y */
+   color: black; 
+   border-radius: 10px;
+   list-style: none;
+   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+   font-weight: bold;
+ }
+ 
+ .cartasJugador{
+   /*background: #95A5A6;  */
+   position: absolute;
+   width: 270px;
+   height: 80px;
+   left: 165px; /* x */
+   top: 330px;  /* y */
+   color: black; 
+   border-radius: 10px;
+   list-style: none;
+   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+   font-weight: bold;
+ }
+ 
+ 
  .recuadro {
   	background-color: #ccc;
   	border: 2px solid #000;
@@ -250,12 +294,8 @@ header{
     </div>
    <h:form>
     <div class="opciones">
-    <h:commandButton styleClass="retroceder" value="retroceder" action="#{mainBean.atrasCartasJugador()}">
-    </h:commandButton>
-      <h:commandButton styleClass="consultar" value="consultar" >
-        <h:graphicImage styleClass="consultar" name="Img/Lupa.png"></h:graphicImage>
-    </h:commandButton>
-    <h:commandButton styleClass="continuar" value="continuar" action="#{mainBean.adelantarCartasJugador()}">
+   
+    <h:commandButton styleClass="consultar" image="/resources/Img/derecha.png" value="continuar" action="#{mainBean.adelantarCartasJugador()}">
     </h:commandButton>
     </div>
     </h:form>
@@ -270,17 +310,36 @@ header{
     
        <h:form>
       <div>
-          <h:commandButton styleClass="aleatorio" value="aleatorio" action="#{mainBean.robarCartaMazoRobar()}"></h:commandButton>
+          <h:commandButton styleClass="aleatorio" image="/resources/Img/respaldoCarta.png" value="aleatorio" action="#{mainBean.robarCartaMazoRobar()}"></h:commandButton>
       </div>
       </h:form>
       
       <div class="numcartas">
+      Cantidad de cartas:
        <ul>
-         <li>Jugador 1:</li>
-         <li>Jugador 2:</li>
-         <li>Jugador 3:</li>
+         <li>#{mainBean.usuario1}: #{mainBean.numCarUsu1}</li>
+         <li>#{mainBean.usuario2}: #{mainBean.numCarUsu2}</li>
+         <li>#{mainBean.aprendiz}: #{mainBean.numCarUsu3}</li>
        </ul>
     </div>
+    
+    <div class="cambioColor">
+         <h4>El color se cambio a:
+          #{mainBean.color}</h4>
+    </div>
+    
+    <div class="cartaRobada">
+         <h4>La ultima carta recogida del mazo fue:
+          #{mainBean.cartaRob}</h4>
+    </div>
+    
+    <div class="cartasJugador">
+      <h4>Cartas del jugador:
+          #{mainBean.cartasJug}</h4>
+    </div>
+    
+   
+    
     <h:form>
       <div class="recuadro">
 	   <div class="cartas">

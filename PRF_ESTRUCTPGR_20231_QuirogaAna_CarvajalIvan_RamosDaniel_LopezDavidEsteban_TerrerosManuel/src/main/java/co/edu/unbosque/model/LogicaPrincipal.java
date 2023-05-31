@@ -142,11 +142,11 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 	
 	public void robarCarta(String nombre, Carta car) {
 		if (jug1.equals(nombre)) {
-				lista1.agregar(montoRobar.pop());
+				lista1.agregar(car);
 		} else if (jug2.equals(nombre)) {
-				lista2.agregar(montoRobar.pop());
+				lista2.agregar(car);
 		} else if (jug3.equals(nombre)) {
-				lista3.agregar(montoRobar.pop());
+				lista3.agregar(car);
 		}
 	}
 
