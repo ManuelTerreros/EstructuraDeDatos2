@@ -1,10 +1,13 @@
 
 package co.edu.unbosque.model;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Stack;
+
+import org.primefaces.PrimeFaces;
 
 public class LogicaPrincipal {
 
@@ -30,31 +33,31 @@ public class LogicaPrincipal {
 		generarCartaNumero();
 
 	}
-public void elegirJugador(String juga1, String juga2, String juga3){
-		
+
+	public void elegirJugador(String juga1, String juga2, String juga3) {
+
 		this.jug1 = juga1;
 		this.jug2 = juga2;
 		this.jug3 = juga3;
-		System.out.println(jug1 + jug2 +jug3);
-		
+		System.out.println(jug1 + jug2 + jug3);
+
 		List<String> jugadores = new ArrayList<>();
 		jugadores.add(jug1);
 		jugadores.add(jug2);
 		jugadores.add(jug3);
-		
+
 		Collections.shuffle(jugadores, new Random());
 		jug1 = jugadores.get(0);
 		jug2 = jugadores.get(1);
 		jug3 = jugadores.get(2);
-		
-		
+
 	}
-	
+
 	public Carta sacarCarta() {
-		Carta carta = montoRobar.pop(); 
+		Carta carta = montoRobar.pop();
 		System.out.println(carta);
 		return carta;
-		
+
 	}
 
 	public void generarCartaNumero() {
@@ -118,7 +121,6 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 		posJugador.agregarInicio(jug1);
 		posJugador.agregarInicio(jug2);
 		posJugador.agregarInicio(jug3);
-		
 
 	}
 
@@ -139,14 +141,14 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 		}
 
 	}
-	
+
 	public void robarCarta(String nombre, Carta car) {
 		if (jug1.equals(nombre)) {
-				lista1.agregar(car);
+			lista1.agregar(car);
 		} else if (jug2.equals(nombre)) {
-				lista2.agregar(car);
+			lista2.agregar(car);
 		} else if (jug3.equals(nombre)) {
-				lista3.agregar(car);
+			lista3.agregar(car);
 		}
 	}
 
@@ -157,7 +159,6 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 
 		return colorAleatorio;
 	}
-	
 
 	// Este metodo sirve para poder modificar la pila de cartas de el jugador que
 	// este seleccionando cartas
@@ -183,28 +184,26 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 		}
 		return carta;
 	}
-	
-	
 
 	// este metodo agrega cartas a la pila de el centro que es la de descartar, les
 	// dejo a eleccion que quieren que retorne la pila o el array para que sepan
 	// cual fue
 	// la ultima carta que se agrego y conforme a eso escojer la imagen
-	public void agregarPilaDescartar(Carta carta) {	
+	public void agregarPilaDescartar(Carta carta) {
 		montoDescartar.push(carta);
 	}
-	
+
 	public Carta quitarPrimeraCartaPilaRobar() {
 		return montoRobar.pop();
 	}
-	
+
 	public Carta consultarPilaDescartar() {
-		Carta nue =montoDescartar.peek();
+		Carta nue = montoDescartar.peek();
 		return nue;
 	}
-	
 
 	public ArrayList<Carta> mostrarCartasJugador(String nombre) {
+		
 		if (jug1.equals(nombre)) {
 			return lista1.mostrar();
 		} else if (jug2.equals(nombre)) {
@@ -212,8 +211,9 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 		} else if (jug3.equals(nombre)) {
 			return lista3.mostrar();
 		}
-
+		
 		return null;
+
 	}
 
 	// METODOS PARA EL SENTIDO HORARIO DE LOS
@@ -283,12 +283,13 @@ public void elegirJugador(String juga1, String juga2, String juga3){
 	public void setMontoRobar(Stack<Carta> montoRobar) {
 		this.montoRobar = montoRobar;
 	}
+
 	public Stack<Carta> getMontoDescartar() {
 		return montoDescartar;
 	}
+
 	public void setMontoDescartar(Stack<Carta> montoDescartar) {
 		this.montoDescartar = montoDescartar;
 	}
-	
-	
+
 }

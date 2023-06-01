@@ -5,353 +5,383 @@
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Tablero UNO</title>
-<style>
-header{
-  width: 100%;
-  height: 100px;
-  background: rgb(200, 21, 21);  /* fallback for old browsers */ 
-  background-size: cover;
-  background-attachment: fixed;
-  position: relative;
- }
- .label{
-   list-style: none;
-   font-weight: bold;
-   font: oblique bold 120% cursive;
-   color: white;
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Tablero UNO</title>
+	<style>
+header {
+	width: 100%;
+	height: 100px;
+	background: rgb(200, 21, 21); /* fallback for old browsers */
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
 }
-.label1{
-   position: absolute;
-   top: -10px; /* y */
-   left: 250px; /* x */
+
+.label {
+	list-style: none;
+	font-weight: bold;
+	font: oblique bold 120% cursive;
+	color: white;
 }
-.label2{
-   position: absolute;
-   top: -10px;
-   left: 500px;
+
+.label1 {
+	position: absolute;
+	top: -10px; /* y */
+	left: 250px; /* x */
 }
-.label3{
-   position: absolute;
-   top: -10px;
-   left: 750px;
+
+.label2 {
+	position: absolute;
+	top: -10px;
+	left: 500px;
 }
-.logo img{
-  width: 165px;
-  height: 85px;
-  display: flex;
-  align-items: center;
-  padding: 8px;
+
+.label3 {
+	position: absolute;
+	top: -10px;
+	left: 750px;
 }
-.botonsalir{
+
+.label11 {
+	position: absolute;
+	top: 30px; /* y */
+	left: 250px; /* x */
+}
+
+.label22 {
+	position: absolute;
+	top: 30px;
+	left: 500px;
+}
+
+.label33 {
+	position: absolute;
+	top: 30px;
+	left: 750px;
+}
+
+.logo img {
+	width: 165px;
+	height: 85px;
+	display: flex;
+	align-items: center;
+	padding: 8px;
+}
+
+.botonsalir {
 	position: absolute;
 	top: 25px;
-    left: 1030px;
-    width: 150px;
-  	height: 50px;
-  	font-size: 1.2rem;
-  	border-radius: 30px;
+	left: 1030px;
+	width: 150px;
+	height: 50px;
+	font-size: 1.2rem;
+	border-radius: 30px;
 }
-.panelprincipal{
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  width: 1150px;
-  height: 585px;
-  top: 120px;
-  left: 40px;
-  background: #E59866;
+
+.panelprincipal {
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	width: 1400px;
+	height: 600px;
+	top: 120px;
+	left: 40px;
+	background: #E59866;
 }
-.opciones{
-  width: 20;
-  height: 40px;
+
+.opciones {
+	width: 20;
+	height: 40px;
 }
+
 .retroceder {
-  position: absolute;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  top: 425px;
-  left: 490px;
-  width: 80px;
-  height: 40px
+	position: absolute;
+	border-radius: 3px;
+	display: inline-block;
+	margin: 4px 2px;
+	cursor: pointer;
+	top: 425px;
+	left: 490px;
+	width: 80px;
+	height: 40px
 }
+
 .retroceder1 {
- position: absolute;
- width: 80px;
-  height: 40px;
-  top: 425px;
-  left: 490px;
+	position: absolute;
+	width: 80px;
+	height: 40px;
+	top: 425px;
+	left: 490px;
 }
- .consultar {
-  position: absolute;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  top: 425px;
-  left: 590px;
-  width: 80px;
-  height: 40px;
-}
-.consultar1 {
-   position: absolute;
-   top: 425px;
-   left: 590px;
-   width: 80px;
-   height: 40px;
-}
+
 .continuar {
-  position: absolute;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  top: 425px;
-  left: 690px;
-  width: 80px;
-  height: 40px;
+	position: absolute;
+	border-radius: 3px;
+	display: inline-block;
+	margin: 4px 2px;
+	cursor: pointer;
+	top: 435px;
+	left: 660px;
+	width: 80px;
+	height: 40px;
 }
-.continuar1 {
-  position: absolute;
-  top: 425px;
-  left: 690px;
-  width: 80px;
-  height: 40px;
+
+.mazo {
+	position: absolute;
+	width: 210;
+	height: 245px;
+	top: 160px;
+	left: 630px;
+	border-radius: 10px;
 }
-.mazo{
-  position: absolute;
-  width: 210;
-  height: 245px;
-  top: 160px;
-  left: 540px;
-  border-radius: 10px;
- }
-.mazo img{
-  width: 210;
-  height: 210px;
+
+.mazo img {
+	width: 210;
+	height: 210px;
 }
-.jugador{
+
+.jugador {
 	position: absolute;
 	top: 118px;
-	left: 520px;
+	left: 100px;
 	font-weight: bold;
 }
-.aleatorio{
+
+.aleatorio {
 	position: absolute;
-	width: 210px;  /*ancho*/
-	height: 270px;  /*alto*/
+	width: 210px; /*ancho*/
+	height: 270px; /*alto*/
 	top: 155px;
-	left: 850px;
+	left: 1060px;
 	border-radius: 20px;
 }
-.numcartas{
-   /*background: #95A5A6;  */
-   position: absolute;
-   width: 150px;
-   height: 90px;
-   left: 165px; /* x */
-   top: 150px;  /* y */
-   color: black; 
-   border-radius: 10px;
-   list-style: none;
-   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-   font-weight: bold;
- }
- 
- .cambioColor{
-   /*background: #95A5A6;  */
-   position: absolute;
-   width: 150px;
-   height: 90px;
-   left: 355px; /* x */
-   top: 150px;  /* y */
-   color: black; 
-   border-radius: 10px;
-   list-style: none;
-   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-   font-weight: bold;
- }
- 
- .cartaRobada{
-   /*background: #95A5A6;  */
-   position: absolute;
-   width: 220px;
-   height: 65px;
-   left: 165px; /* x */
-   top: 250px;  /* y */
-   color: black; 
-   border-radius: 10px;
-   list-style: none;
-   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-   font-weight: bold;
- }
- 
- .cartasJugador{
-   /*background: #95A5A6;  */
-   position: absolute;
-   width: 270px;
-   height: 80px;
-   left: 165px; /* x */
-   top: 330px;  /* y */
-   color: black; 
-   border-radius: 10px;
-   list-style: none;
-   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-   font-weight: bold;
- }
- 
- 
- .recuadro {
-  	background-color: #ccc;
-  	border: 2px solid #000;
-  	width: 1000px;
-  	height: 200px;
-  	position: absolute;
-	top: 480px;
-  	left: 120px;
-  	border-radius: 15px;
-}
-.carta1{
-	width: 140px;
-  	height: 170px;
-  	position: absolute;
-	top: 21px;
-  	left: 35px;
-  	border-radius: 6px;
-}
-.carta2{
-	width: 140px;
-  	height: 170px;
-  	position: absolute;
-	top: 21px;
-  	left: 230px;
-  	border-radius: 6px;
-}
-.carta3{
-	width: 140px;
-  	height: 170px;
-  	position: absolute;
-	top: 21px;
-  	left: 420px;
-  	border-radius: 6px;
+
+.numcartas {
+	/*background: #95A5A6;  */
+	position: absolute;
+	width: 170px;
+	height: 110px;
+	left: 165px; /* x */
+	top: 150px; /* y */
+	color: white;
+	border-radius: 10px;
+	list-style: none;
+	background: rgb(178, 16, 9);
 }
 
-.carta4{
-	width: 140px;
-  	height: 170px;
-  	position: absolute;
-	top: 21px;
-  	left: 620px;
-  	border-radius: 6px;
+#infotabla {
+	position: absolute;
+	top: 195px;
+	left: 80px;
+	width: 300px;
+	color: black;
+	border-radius: 6px;
 }
-.carta5{
-	width: 140px;
-  	height: 170px;
-  	position: absolute;
-	top: 21px;
-  	left: 820px;
-  	border-radius: 6px;
+
+#recuadro1 {
+	position: absolute;
+	top: 170px;
+	left: 60px;
+	width: 350px;
+	height: 300px;
+	background: #ccc;
 }
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	font-weight: bold;
+}
+
+th {
+	text-align: center;
+}
+
+.recuadro {
+	background-color: #ccc;
+	border: 2px solid #000;
+	width: 1000px;
+	height: 200px;
+	position: absolute;
+	top: 500px;
+	left: 220px;
+	border-radius: 15px;
+}
+
+.carta1 {
+	width: 140px;
+	height: 170px;
+	position: absolute;
+	top: 21px;
+	left: 35px;
+	border-radius: 6px;
+}
+
+.carta2 {
+	width: 140px;
+	height: 170px;
+	position: absolute;
+	top: 21px;
+	left: 230px;
+	border-radius: 6px;
+}
+
+.carta3 {
+	width: 140px;
+	height: 170px;
+	position: absolute;
+	top: 21px;
+	left: 420px;
+	border-radius: 6px;
+}
+
+.carta4 {
+	width: 140px;
+	height: 170px;
+	position: absolute;
+	top: 21px;
+	left: 620px;
+	border-radius: 6px;
+}
+
+.carta5 {
+	width: 140px;
+	height: 170px;
+	position: absolute;
+	top: 21px;
+	left: 820px;
+	border-radius: 6px;
+}
+
 .carta1:hover {
-  opacity: 0.5;
+	opacity: 0.5;
 }
+
 .carta2:hover {
-  opacity: 0.5;
+	opacity: 0.5;
 }
+
 .carta3:hover {
-  opacity: 0.5;
+	opacity: 0.5;
 }
+
 .carta4:hover {
-  opacity: 0.5;
+	opacity: 0.5;
 }
+
 .carta5:hover {
-  opacity: 0.5;
+	opacity: 0.5;
 }
-
-
-
-
 </style>
 </h:head>
-    <header>
-       <label class="logo">
-         <h:graphicImage styleClass="logo" name="Img/UNOLogo.png"></h:graphicImage>
-       </label>
-       <ul class="label">
-         <li class="label1"><h3><b> #{mainBean.usuario1}</b></h3></li>
-         <li class="label2"><h3><b> #{mainBean.usuario2}</b></h3></li>
-         <li class="label3"><h3><b> #{mainBean.aprendiz}</b></h3></li>
-       </ul>
-       <h:commandButton styleClass="botonsalir" value="salir" action="#{mainBean.salir}"/>
-    </header>
+<header>
+	<label class="logo"> <h:graphicImage styleClass="logo"
+			name="Img/UNOLogo.png"></h:graphicImage>
+	</label>
+	<ul class="label">
+		<li class="label1"><h3>
+				<b> #{mainBean.usuario1}</b>
+			</h3></li>
+		<li class="label11"><h3>
+				<b> #{mainBean.numCarUsu1} cartas</b>
+			</h3></li>
+
+		<li class="label2"><h3>
+				<b> #{mainBean.usuario2}</b>
+			</h3></li>
+		<li class="label22"><h3>
+				<b> #{mainBean.numCarUsu2} cartas</b>
+			</h3></li>
+
+		<li class="label3"><h3>
+				<b> #{mainBean.aprendiz}</b>
+			</h3></li>
+		<li class="label33"><h3>
+				<b> #{mainBean.numCarUsu3} cartas</b>
+			</h3></li>
+
+	</ul>
+	<h:form>
+		<h:commandButton styleClass="botonsalir" value="salir"
+			action="#{mainBean.volverIndex()}" />
+	</h:form>
+
+</header>
 <h:body>
 
-    <div>
-        <h:graphicImage styleClass="panelprincipal" name="Img/Fondo.png"></h:graphicImage>	
-    </div>
-   <h:form>
-    <div class="opciones">
-   
-    <h:commandButton styleClass="consultar" image="/resources/Img/derecha.png" value="continuar" action="#{mainBean.adelantarCartasJugador()}">
-    </h:commandButton>
-    </div>
-    </h:form>
-      <div>
-        <div class="jugador">
-            <h4>Player #{mainBean.getUsuarioJugando()}</h4>
-        </div>   
-        <h:commandButton styleClass="mazo" value="mazo">
-            <h:graphicImage styleClass="mazo" name="#{mainBean.mostrarUltimaCartaMazo()}"></h:graphicImage>
-        </h:commandButton>
-    </div>
-    
-       <h:form>
-      <div>
-          <h:commandButton styleClass="aleatorio" image="/resources/Img/respaldoCarta.png" value="aleatorio" action="#{mainBean.robarCartaMazoRobar()}"></h:commandButton>
-      </div>
-      </h:form>
-      
-      <div class="numcartas">
-      Cantidad de cartas:
-       <ul>
-         <li>#{mainBean.usuario1}: #{mainBean.numCarUsu1}</li>
-         <li>#{mainBean.usuario2}: #{mainBean.numCarUsu2}</li>
-         <li>#{mainBean.aprendiz}: #{mainBean.numCarUsu3}</li>
-       </ul>
-    </div>
-    
-    <div class="cambioColor">
-         <h4>El color se cambio a:
-          #{mainBean.color}</h4>
-    </div>
-    
-    <div class="cartaRobada">
-         <h4>La ultima carta recogida del mazo fue:
-          #{mainBean.cartaRob}</h4>
-    </div>
-    
-    <div class="cartasJugador">
-      <h4>Cartas del jugador:
-          #{mainBean.cartasJug}</h4>
-    </div>
-    
-   
-    
-    <h:form>
-      <div class="recuadro">
-	   <div class="cartas">
-	     <h:commandButton styleClass="carta1" image="/resources/#{mainBean.cart1}" value="carta1" action="#{mainBean.elegirCartaC1()}"/>
-	     <h:commandButton styleClass="carta2" image="/resources/#{mainBean.cart2}" value="carta2" action="#{mainBean.elegirCartaC2()}"/>
-	     <h:commandButton styleClass="carta3" image="/resources/#{mainBean.cart3}" value="carta3" action="#{mainBean.elegirCartaC3()}"/>
-	     <h:commandButton styleClass="carta4" image="/resources/#{mainBean.cart4}" value="carta4" action="#{mainBean.elegirCartaC4()}"/>
-	     <h:commandButton styleClass="carta5" image="/resources/#{mainBean.cart5}" value="carta5" action="#{mainBean.elegirCartaC5()}"/>
-	      
-		</div>
+	<div>
+		<h:graphicImage styleClass="panelprincipal" name="Img/Fondo.png"></h:graphicImage>
 	</div>
+	<h:form>
+		<div class="opciones">
+
+			<h:commandButton styleClass="continuar"
+				image="/resources/Img/derecha.png" value="continuar"
+				action="#{mainBean.adelantarCartasJugador()}">
+			</h:commandButton>
+		</div>
+
 	</h:form>
-	
+	<div>
+		<div class="jugador">
+			<h4>JUGADOR ACTUAL: #{mainBean.getUsuarioJugando()}</h4>
+		</div>
+		<h:commandButton styleClass="mazo" value="mazo">
+			<h:graphicImage styleClass="mazo"
+				name="#{mainBean.mostrarUltimaCartaMazo()}"></h:graphicImage>
+		</h:commandButton>
+	</div>
+
+	<h:form>
+		<div>
+			<h:commandButton styleClass="aleatorio"
+				image="/resources/Img/respaldoCarta.png" value="aleatorio"
+				action="#{mainBean.robarCartaMazoRobar()}"></h:commandButton>
+		</div>
+	</h:form>
+
+	<div id="recuadro1"></div>
+	<table id="infotabla">
+		<tr>
+			<td colspan="3">Informacion Juego</td>
+		</tr>
+		<tr>
+			<td colspan="2">El color que esta seleccionado es:</td>
+			<td>#{mainBean.color}</td>
+		</tr>
+		<tr>
+			<td colspan="2">La ultima carta recogida del mazo de
+				#{mainBean.getUsuarioJugando()} fue:</td>
+			<td>#{mainBean.cartaRob}</td>
+		</tr>
+		<tr>
+			<td>Cartas del jugador actual:</td>
+			<td colspan="2">#{mainBean.cartasJug}</td>
+		</tr>
+	</table>
+
+	<h:form>
+		<div class="recuadro">
+			<div class="cartas">
+				<h:commandButton styleClass="carta1"
+					image="/resources/#{mainBean.cart1}" value="carta1"
+					action="#{mainBean.elegirCartaC1()}" />
+				<h:commandButton styleClass="carta2"
+					image="/resources/#{mainBean.cart2}" value="carta2"
+					action="#{mainBean.elegirCartaC2()}" />
+				<h:commandButton styleClass="carta3"
+					image="/resources/#{mainBean.cart3}" value="carta3"
+					action="#{mainBean.elegirCartaC3()}" />
+				<h:commandButton styleClass="carta4"
+					image="/resources/#{mainBean.cart4}" value="carta4"
+					action="#{mainBean.elegirCartaC4()}" />
+				<h:commandButton styleClass="carta5"
+					image="/resources/#{mainBean.cart5}" value="carta5"
+					action="#{mainBean.elegirCartaC5()}" />
+
+			</div>
+		</div>
+	</h:form>
+
 </h:body>
 </html>

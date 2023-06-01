@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Inicio</title>
+	<style>
+.img-esquina {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+body {
+	background: #ED213A; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #93291E, #ED213A);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #93291E, #ED213A);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+form {
+	width: 720px;
+	background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	padding: 30px;
+	border-radius: 40px;
+}
+
+.form-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.titulo {
+	font-family: daytona;
+	font-weight: lighter;
+}
+
+.subtitulos {
+	font-weight: bold;
+	font-size: 20px;
+	padding: 10px;
+	padding-right: 50px;
+	font-family: cursive;
+}
+
+.field {
+	width: 100%;
+	font-size: 25px;
+	border-radius: 10px;
+	border: 3px solid black;
+	font-size: 20px;
+}
+
+.button {
+	display: inline-block;
+	padding: 15px 25px;
+	font-size: 24px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: white;
+	background-color: #EE1E1E;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 9px black;
+}
+
+.button:hover {
+	background-color: black;
+}
+
+.button:active {
+	background-color: black;
+	box-shadow: 0 5px black;
+	transform: translateY(4px);
+}
+
+.formulario {
+	border-collapse: separate; /* separar los bordes */
+	border-spacing: 50px;
+	margin-right: 10px; /* establecer margen entre los td */
+	padding: 10px;
+	margin-left: 50px;
+}
+
+#pantallaCarga {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#pantallaCarga img {
+	width: 100%; /* Ajusta el tamaño de la imagen según tus necesidades */
+	height: 100%;
+	/* Ajusta el tamaño de la imagen según tus necesidades */
+}
+</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var pantallaCarga = document.getElementById('pantallaCarga');
+			pantallaCarga.style.display = 'flex'; // Mostrar la pantalla de carga al cargar la página
+
+			// Ocultar la pantalla de carga después de 3 segundos (3000 milisegundos)
+			setTimeout(function() {
+				pantallaCarga.style.display = 'none';
+			}, 3000);
+		};
+	</script>
+</h:head>
+<h:body>
+	<div id="pantallaCarga">
+		<h:graphicImage name="Img/pantallaCargaUNO.png" />
+	</div>
+	<div class="contenedor">
+		<h:graphicImage styleClass="img-esquina" name="Img/UNOLogo.png" />
+	</div>
+
+	<h:form id="formulario">
+		<div class="form-content">
+			<H1 class="titulo">Felicidades #{mainBean.usuarioJugando}, eres el ganador</H1>
+		</div>
+		<div class="boton">
+			<p:commandButton value="volver" type="submit" action="#{mainBean.volverIndex()}"></p:commandButton>
+		</div>
+	</h:form>
+</h:body>
+</html>
